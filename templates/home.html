@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+    {% load static %}
+
+    <link rel="stylesheet" href="{% static 'styles.css'%} ">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Passion+One&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <h1>Bevásárló lista</h1>
+    <div class="kozep">
+        <div id="tetelek">
+            <table class="itemek">
+                <tr id="nagy">
+                    <th></th>
+                    <th>Termék</th>
+                    <th>Mennyiség</th> 
+                </tr>
+                <tr>
+                    <td> <input type="checkbox"></td>
+                    <td>Alma</td>
+                    <td class="mennyiseg">2kg</td>
+                </tr>
+                <tr>
+                    <td> <input type="checkbox"></td>
+                    <td>Fél liter tej</td>
+                    <td class="mennyiseg">1db</td>
+                </tr>
+            </table>
+             <div class="új"> 
+                 <div id="cim">Új termék hozzáadása</div>
+                 <div>Termék: <input type="text" id="inputitem" maxlength="30"> Mennyiség: <input type="text" id="inputamount" maxlength="10" size="6"></div>
+                 <div id="buttonka">Hozzáadás</div>
+             </div>
+             
+            
+        </div>
+    </div>
+</body>
+</html>
