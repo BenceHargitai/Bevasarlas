@@ -22,5 +22,5 @@ from listapp.views import home_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('lista/', home_view, name='home'),
+    path('', home_view, name='home'),
 ]
