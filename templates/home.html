@@ -7,7 +7,7 @@
 
     {% load static %}
 
-    <link rel="stylesheet" href="{% static 'stylesheet.css'%} ">
+    <link rel="stylesheet" href="{% static 'style.css'%} ">
     <script src="{% static 'app.js' %}"></script>  
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Passion+One&display=swap" rel="stylesheet">
@@ -25,12 +25,12 @@
                         <th>Mennyiség</th> 
                     </tr>
                     <tr>
-                        <td> <input type="checkbox" onclick="confirmgomb()"></td>
+                        <td> <input type="checkbox"></td>
                         <td>Alma</td>
                         <td class="mennyiseg">2kg</td>
                     </tr>
                     <tr>
-                        <td> <input type="checkbox" onclick="confirmgomb()"></td>
+                        <td> <input type="checkbox"></td>
                         <td>Fél liter tej</td>
                         <td class="mennyiseg">1db</td>
                     </tr>
@@ -43,6 +43,9 @@
                 
                 
             </div>
+    </div>
+    <div class="torles">
+        <div class="gombd" onclick="confirmgomb()">Kijelöltek törlése</div>
     </div>
   
 </body>
