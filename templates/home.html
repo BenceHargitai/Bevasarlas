@@ -24,16 +24,13 @@
                         <th>Termék</th>
                         <th>Mennyiség</th> 
                     </tr>
+                    {% for tetel in tetelek %}
                     <tr>
                         <td> <input type="checkbox"></td>
-                        <td>Alma</td>
-                        <td class="mennyiseg">2kg</td>
+                        <td>{{tetel.nev}}</td>
+                        <td class="mennyiseg">{{tetel.mennyiseg}}</td>
                     </tr>
-                    <tr>
-                        <td> <input type="checkbox"></td>
-                        <td>Fél liter tej</td>
-                        <td class="mennyiseg">1db</td>
-                    </tr>
+                    {% endfor %}
                 </table>
                 <div class="új"> 
                     <div id="cim">Új termék hozzáadása</div>

@@ -23,5 +23,5 @@ from listapp.views import home_view, torles
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_view, name='home'),
-    path('/torles', torles)
+    path('torles/', torles)
 ]

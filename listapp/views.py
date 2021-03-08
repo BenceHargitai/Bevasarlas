@@ -6,12 +6,15 @@ from django.http import JsonResponse
 # Create your views here.
 def home_view(request, *args, **kwargs):
 
-    elemek = Lista.objects.all()
-    kontextus = {
-    "a": 123,
-    "b": "blablabla",
-    "l": [1,3,5,7,9],
-    }
+    array = []
+    response = Lista.objects.all()
+    for elem in response:
+        array.append({
+
+            "nev": elem.name,
+            "mennyiseg": elem.amount,
+            
+        })
     if (request.method == "POST"):
         array = json.load(request)
         response = Lista.create(array)
@@ -32,25 +35,27 @@ def home_view(request, *args, **kwargs):
             }
         return JsonResponse(data)
         print("POST request érkezett!" )
-    return render(request, "home.html", kontextus) 
+    return render(request, "home.html", {"tetelek": array}) 
+
+
 
 def torles(request, *args, **kwargs):
     array = json.load(request)
     response = Lista.delete(array)
-        if(response['response'] == True):
-            data = {
-                'response': 'OK',
-                'massage': response['massage'],
-            }
-        elif(response['response'] =='nemtalált'):
-            data = {
-                'response': 'Nem talált ilyet',
-                'massage': 'Nem talált ilyet',
-            }
-        else:
-            data = {
-                'response': response['response'],
-                'massage': response['massage'],
-            }
-        return JsonResponse(data)
-        print("POST request érkezett!: törlés" )
+    if(response == True):
+        data = {
+            'response': 'OK',
+            'massage': "Sikeres törlés",
+        }
+    elif(response =='nemtalált'):
+        data = {
+            'response': 'Nem talált ilyet',
+            'massage': 'Nem talált ilyet',
+        }
+    else:
+        data = {
+            'response': response,
+            'massage': response,
+        }
+    return JsonResponse(data)
+    print("POST request érkezett!: törlés" )
