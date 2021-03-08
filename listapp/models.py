@@ -16,3 +16,24 @@ class Lista(models.Model):
 
     def __str__(self):
         return f"{self.name} - {self.amount} - (id : {self.nameid})"
+
+    def create(json):
+        query = Lista.objects.filter(nameid=json['id'])
+        if not list(query):
+            try:
+                Lista(nameid=json["id"], name=json["nev"], amount = json["mennyiseg"]).save()
+                return {'response': True, 'massage': "Sikeresen hozzáadva"}
+            except ValueError:
+                return {'response': ValueError, 'massage': ValueError}
+        else:
+            return {'response': 'nemjó', 'massage': 'Már van meglévő'}
+    def delete(json):
+        query = Lista.objects.filter(nameid=json['id'])
+        if not list(query):
+            return 'nem talált item'
+        else:
+            try:
+                query.delete()
+                return True
+            except ValueError:
+                return ValueError

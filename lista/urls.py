@@ -17,10 +17,11 @@ from django.contrib import admin
 from django.urls import path
 from django import forms
 
-from listapp.views import home_view
+from listapp.views import home_view, torles
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_view, name='home'),
+    path('/torles', torles)
 ]
